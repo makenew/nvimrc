@@ -1,0 +1,63 @@
+*nvimrc.txt* Neovim configuration as a self-bootstrapping plugin.
+*nvimrc*     0.0.0
+
+                                  _                    ~
+                       _ ____   _(_)_ __ ___  _ __ ___ ~
+                      | '_ \ \ / / | '_ ` _ \| '__/ __|~
+                      | | | \ V /| | | | | | | | | (__ ~
+                      |_| |_|\_/ |_|_| |_| |_|_|  \___|~
+                                                       ~
+
+==============================================================================
+CONTENTS                                                      *nvimrc-contents*
+
+    1.Intro....................................|nvimrc-intro|
+        1.1.Structure..........................|nvimrc-structure|
+    i.About....................................|nvimrc-about|
+    ii.License.................................|nvimrc-license|
+    iii.Warranty...............................|nvimrc-warranty|
+
+==============================================================================
+1. Intro                                                         *nvimrc-intro*
+
+This configuration system works as a meta-plugin:
+all desired Neovim plugins are loaded from *plugins.vim* using vim-plug.
+Overall configuration then follows a normal plugin structure.
+
+This document concerns the details of this specific Neovim environment.
+For installation instructions and development information, see
+
+    https://github.com/makenew/nvimrc
+
+------------------------------------------------------------------------------
+1.1 Structure                                                *nvimrc-structure*
+
+All plugins are loaded in `plugins.vim` using vim-plug.
+Some plugin settings must be set at plugin initialization.
+Those settings are located at the bottom of `plugins.vim`.
+
+==============================================================================
+i. About                                                         *nvimrc-about*
+
+This plugin is authored by Evan Sosenko.
+
+Find the source and latest version at
+
+    https://github.com/makenew/nvimrc
+
+==============================================================================
+ii. License                                                    *nvimrc-license*
+
+This Neovim configuration is licensed under the MIT license.
+
+    https://github.com/rxrc/nvimrc/blob/master/LICENSE.txt.
+
+==============================================================================
+iii. Warranty                                                 *nvimrc-warranty*
+
+This software is provided "as is" and without any express or
+implied warranties, including, without limitation, the implied
+warranties of merchantibility and fitness for a particular
+purpose.
+
+ vim:tw=78:sw=4:ft=help:norl:
