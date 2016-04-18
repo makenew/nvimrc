@@ -80,7 +80,7 @@ call plug#begin(\$XDG_CONFIG_HOME . '/nvim/plugged')
 
 if filereadable(\$XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
   source \$XDG_CONFIG_HOME/nvim/plugged/nvimrc/plugins.vim
-  if !\$NVIMRC_INSTALL == 'true'
+  if \$NVIMRC_INSTALL != 'true'
     Plug '$repo'
   endif
 else
