@@ -136,7 +136,7 @@ You will need to exit Neovim manually with `:qa` after each step.
 
   if filereadable($XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
     source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/plugins.vim
-    if !$NVIMRC_INSTALL == 'true'
+    if $NVIMRC_INSTALL != 'true'
       Plug 'makenew/nvimrc'
     endif
   else
