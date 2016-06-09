@@ -21,7 +21,8 @@ CONTENTS                                                      *nvimrc-contents*
 1. Intro                                                         *nvimrc-intro*
 
 This configuration system works as a meta-plugin:
-all desired Neovim plugins are loaded from *plugins.vim* using vim-plug.
+all desired Neovim plugins are loaded from *plugins.vim* using vim-plug,
+and any GUI specific options are set in `gui.vim`.
 Overall configuration then follows a normal plugin structure.
 
 This document concerns the details of this specific Neovim environment.

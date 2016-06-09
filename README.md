@@ -11,7 +11,8 @@
 ## Description
 
 This configuration system works as a meta-plugin:
-all desired Neovim plugins are loaded from `plugins.vim` using [vim-plug].
+all desired Neovim plugins are loaded from `plugins.vim` using [vim-plug],
+and any GUI specific options are set in `gui.vim`.
 Overall configuration then follows a normal plugin structure.
 
 For documentation of this Neovim configuration,
@@ -144,6 +145,14 @@ You will need to exit Neovim manually with `:qa` after each step.
   endif
 
   call plug#end()
+  ```
+
+  and `~/.config/nvim/ginit.vim` with
+
+  ```vim
+  " makenew/nvimrc
+
+  source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
   ```
 
 3. Run
