@@ -133,6 +133,10 @@ You will need to exit Neovim manually with `:qa` after each step.
   ```vim
   " makenew/nvimrc
 
+  if empty($XDG_CONFIG_HOME)
+    let $XDG_CONFIG_HOME = $HOME . '/.config'
+  endif
+
   call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
 
   if filereadable($XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
@@ -151,6 +155,10 @@ You will need to exit Neovim manually with `:qa` after each step.
 
   ```vim
   " makenew/nvimrc
+
+  if empty($XDG_CONFIG_HOME)
+    let $XDG_CONFIG_HOME = $HOME . '/.config'
+  endif
 
   source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
   ```

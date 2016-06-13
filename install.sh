@@ -6,7 +6,7 @@ main () {
 
   repo='makenew/nvimrc'
 
-  config_home=$XDG_CONFIG_HOME
+  config_home=${XDG_CONFIG_HOME:-$HOME/.config}
   nvim_root="${config_home}/nvim"
 
   if [ "${1:-}" == 'dev' ]; then
@@ -76,6 +76,10 @@ install_nvimrc () {
   tee $nvim_root/init.vim >/dev/null <<EOF
 " $repo
 
+if empty(\$XDG_CONFIG_HOME)
+  let \$XDG_CONFIG_HOME = \$HOME . '/.config'
+endif
+
 call plug#begin(\$XDG_CONFIG_HOME . '/nvim/plugged')
 
 if filereadable(\$XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
@@ -110,6 +114,10 @@ EOF
 
   tee $nvim_root/ginit.vim >/dev/null <<EOF
 " $repo
+
+if empty(\$XDG_CONFIG_HOME)
+  let \$XDG_CONFIG_HOME = \$HOME . '/.config'
+endif
 
 source \$XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
 EOF
