@@ -6,7 +6,7 @@ main () {
 
   repo='makenew/nvimrc'
 
-  config_home=$XDG_CONFIG_HOME
+  config_home=${XDG_CONFIG_HOME:-$HOME/.config}
   nvim_root="${config_home}/nvim"
 
   if [ "${1:-}" == 'dev' ]; then
@@ -76,6 +76,10 @@ install_nvimrc () {
   tee $nvim_root/init.vim >/dev/null <<EOF
 " $repo
 
+if empty(\$XDG_CONFIG_HOME)
+  let \$XDG_CONFIG_HOME = \$HOME . '/.config'
+endif
+
 call plug#begin(\$XDG_CONFIG_HOME . '/nvim/plugged')
 
 if filereadable(\$XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
@@ -90,10 +94,39 @@ endif
 call plug#end()
 EOF
 
-  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/init.vim ❱   \033[0m"
+  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
+
+  if [ -f $nvim_root/ginit.vim ] || [ -h $nvim_root/ginit.vim ]; then
+    nvimrc_line=$(head -n 1 $nvim_root/ginit.vim)
+
+    if [ "$nvimrc_line" != "\" ${repo}" ]; then
+      echo -e "  ➤  Exists       ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
+
+      mv $nvim_root/ginit.vim $nvim_root/ginit.vim.preinstall
+
+      echo -e "\033[32m    ✔ Moved to    ❰ ${nvim_root}/ginit.vim.preinstall ❱   \033[0m"
+    else
+      rm $nvim_root/ginit.vim
+    fi
+  fi
+
+  echo -e "  ➤ Installing    ❰ $nvim_root/ginit.vim ❱   \033[0m"
+
+  tee $nvim_root/ginit.vim >/dev/null <<EOF
+" $repo
+
+if empty(\$XDG_CONFIG_HOME)
+  let \$XDG_CONFIG_HOME = \$HOME . '/.config'
+endif
+
+source \$XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
+EOF
+
+  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
 
   echo -e "  ➤ Run           ❰ PlugInstall ❱   \033[0m"
 
+  nvim -c PlugClean!
   nvim -c PlugInstall
   NVIMRC_INSTALL=true nvim -c PlugInstall
   nvim -c PlugClean!
@@ -125,6 +158,12 @@ dev_mode () {
     i=$(( i + 1 ))
   done
 
+  f_gstr='$XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim'
+  r_gstr="$(pwd)/gui.vim"
+
+  sed -i -e "s|${f_gstr}|${r_gstr}|g" $nvim_root/ginit.vim
+
+  nvim -c PlugClean!
   nvim -c PlugInstall
   nvim -c PlugClean!
   nvim -c PlugUpdate
