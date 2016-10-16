@@ -170,6 +170,7 @@ dev_mode () {
 
   echo -e "\033[32m  ✔ Neovim now using nvimrc from this directory. \033[0m"
   echo -e "\033[32m  ➤ Run ./install.sh again to exit development mode. \033[0m"
+  exit 0
 }
 
 main $1
