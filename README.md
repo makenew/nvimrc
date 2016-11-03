@@ -32,7 +32,7 @@ see `:help nvimrc` or view [nvimrc.txt](./doc/nvimrc.txt) directly.
    Optionally, reset to the latest [release][Releases] with
 
    ```
-   $ git reset --hard nvimrc-v1.2.0
+   $ git reset --hard nvimrc-v1.2.1
    ```
 
 2. Run
