@@ -126,10 +126,10 @@ EOF
 
   echo -e "  ➤ Run           ❰ PlugInstall ❱   \033[0m"
 
-  nvim -c PlugClean!
-  nvim -c PlugInstall
-  NVIMRC_INSTALL=true nvim -c PlugInstall
-  nvim -c PlugClean!
+  nvim +PlugClean! +qa
+  nvim +PlugInstall +qa
+  NVIMRC_INSTALL=true nvim +PlugInstall +qa
+  nvim +PlugClean! +qa
 
   echo
   echo -e "\033[32m    ✔ Completed   ❰ PlugInstall ❱   \033[0m"
@@ -163,10 +163,10 @@ dev_mode () {
 
   sed -i -e "s|${f_gstr}|${r_gstr}|g" $nvim_root/ginit.vim
 
-  nvim -c PlugClean!
-  nvim -c PlugInstall
-  nvim -c PlugClean!
-  nvim -c PlugUpdate
+  nvim +PlugClean! +qa
+  nvim +PlugInstall +qa
+  nvim +PlugClean! +qa
+  nvim +PlugUpdate +qa
 
   echo -e "\033[32m  ✔ Neovim now using nvimrc from this directory. \033[0m"
   echo -e "\033[32m  ➤ Run ./install.sh again to exit development mode. \033[0m"

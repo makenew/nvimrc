@@ -122,8 +122,6 @@ or wget
 $ wget https://git.io/vwYYX -O - | sh
 ```
 
-You will need to exit Neovim manually with `:qa` after each step.
-
 ### Manual Install
 
 1. Install [vim-plug].
@@ -166,11 +164,9 @@ You will need to exit Neovim manually with `:qa` after each step.
 3. Run
 
   ```
-  $ nvim -c PlugInstall
-  $ NVIMRC_INSTALL=true nvim -c PlugInstall
+  $ nvim +PlugInstall +qa
+  $ NVIMRC_INSTALL=true nvim +PlugInstall +qa
   ```
-
-  You will need to exit Neovim manually with `:qa` after each step.
 
 ### Updating
 
@@ -186,10 +182,10 @@ function nvimupg () {
     return 1
   fi
 
-  nvim -c PlugUpgrade
-  nvim -c PlugUpdate
-  nvim -c PlugInstall
-  nvim -c PlugClean!
+  nvim +PlugUpgrade +qa
+  nvim +PlugUpdate +qa
+  nvim +PlugInstall +qa
+  nvim +PlugClean! +qa
 }
 ```
 
