@@ -31,6 +31,10 @@ check_env () {
 
 stage_env () {
   echo
+  git tag | xargs git tag -d
+  git remote rename origin upstream
+  git branch --unset-upstream
+  echo
   git rm -f makenew.sh
   echo
   echo 'Staging changes.'
@@ -48,7 +52,7 @@ makenew () {
   read -p '> GitHub user or organization name: ' mk_user
   read -p '> GitHub repository name: ' mk_repo
 
-  sed_delete README.md '3d;25,110d;243,246d'
+  sed_delete README.md '3d;24,100d;234,237d'
 
   find_replace "s/0\.0\.0/${mk_version}/g"
   find_replace "s/2016 Evan Sosenko/${mk_year} ${mk_owner}/g"

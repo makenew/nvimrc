@@ -45,7 +45,7 @@ see `:help nvimrc` or view [nvimrc.txt](./doc/nvimrc.txt) directly.
 
    and follow the prompts.
    This will replace the boilerplate, delete itself,
-   and stage changes for commit.
+   stage changes for commit, remove tags, and set upstream.
    This script assumes the project repository will be hosted on GitHub.
    For an alternative location, you must update the URLs manually.
 
@@ -80,16 +80,7 @@ see `:help nvimrc` or view [nvimrc.txt](./doc/nvimrc.txt) directly.
 If you want to pull in future updates from this skeleton,
 you can fetch and merge in changes from this repository.
 
-If this repository is already set as `origin`,
-rename it to `upstream` with
-
-```
-$ git remote rename origin upstream
-```
-
-and then configure your `origin` branch as normal.
-
-Otherwise, add this as a new remote with
+Add this as a new remote with
 
 ```
 $ git remote add upstream https://github.com/makenew/nvimrc.git
@@ -98,7 +89,7 @@ $ git remote add upstream https://github.com/makenew/nvimrc.git
 You can then fetch and merge changes with
 
 ```
-$ git fetch upstream
+$ git fetch --no-tags upstream
 $ git merge upstream/master
 ```
 
