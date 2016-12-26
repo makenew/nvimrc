@@ -4,8 +4,6 @@
 [![Github releases](https://img.shields.io/github/release/makenew/nvimrc.svg)](https://github.com/makenew/nvimrc/releases)
 [![GitHub license](https://img.shields.io/github/license/makenew/nvimrc.svg)](./LICENSE.txt)
 
-> Built from [makenew/nvimrc](https://github.com/makenew/nvimrc).
-
 [Neovim] configuration as a Neovim plugin.
 
 [Neovim]: https://neovim.io/
