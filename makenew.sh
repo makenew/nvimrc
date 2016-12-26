@@ -48,15 +48,12 @@ makenew () {
   read -p '> GitHub user or organization name: ' mk_user
   read -p '> GitHub repository name: ' mk_repo
 
-  sed_delete README.md '3d;23,108d;241,244d'
+  sed_delete README.md '3d;25,110d;243,246d'
 
   find_replace "s/0\.0\.0/${mk_version}/g"
   find_replace "s/2016 Evan Sosenko/${mk_year} ${mk_owner}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/makenew\/nvimrc/${mk_user}\/${mk_repo}/g"
-
-  mk_attribution='> Built from [makenew/nvimrc](https://github.com/makenew/nvimrc).'
-  sed_insert README.md '6i' "${mk_attribution}\n"
 
   echo
   echo 'Replacing boilerplate.'
