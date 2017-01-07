@@ -71,7 +71,7 @@ install_nvimrc () {
     fi
   fi
 
-  echo -e "  ➤ Installing    ❰ $nvim_root/init.vim ❱   \033[0m"
+  echo -e "  ➤ Installing    ❰ ${nvim_root}/init.vim ❱   \033[0m"
 
   tee $nvim_root/init.vim >/dev/null <<EOF
 " $repo
@@ -110,7 +110,7 @@ EOF
     fi
   fi
 
-  echo -e "  ➤ Installing    ❰ $nvim_root/ginit.vim ❱   \033[0m"
+  echo -e "  ➤ Installing    ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
 
   tee $nvim_root/ginit.vim >/dev/null <<EOF
 " $repo
