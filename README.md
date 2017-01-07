@@ -1,7 +1,7 @@
 # Neovim Configuration
 
 [<img src="https://makenew.github.io/makenew.svg" alt="Make New" height="20">](https://makenew.github.io/)
-[![Github releases](https://img.shields.io/github/release/makenew/nvimrc.svg)](https://github.com/makenew/nvimrc/releases)
+[![GitHub releases](https://img.shields.io/github/release/makenew/nvimrc.svg)](https://github.com/makenew/nvimrc/releases)
 [![GitHub license](https://img.shields.io/github/license/makenew/nvimrc.svg)](./LICENSE.txt)
 
 > Built from [makenew.github.io](https://makenew.github.io/).
