@@ -50,7 +50,7 @@ makenew () {
   sed_delete README.md '3d;24,100d;234,237d'
 
   find_replace "s/0\.0\.0/${mk_version}/g"
-  find_replace "s/2016 Evan Sosenko/${mk_year} ${mk_owner}/g"
+  find_replace "s/2017 Evan Sosenko/${mk_year} ${mk_owner}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/makenew\/nvimrc/${mk_user}\/${mk_repo}/g"
 
