@@ -129,6 +129,8 @@ EOF
   nvim +PlugClean! +qa
   nvim +PlugInstall +qa
   NVIMRC_INSTALL=true nvim +PlugInstall +qa
+  nvim +PlugUpdate +qa
+  nvim +PlugInstall +qa
   nvim +PlugClean! +qa
 
   echo
