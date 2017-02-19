@@ -94,7 +94,7 @@ endif
 call plug#end()
 EOF
 
-  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
+  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/init.vim ❱   \033[0m"
 
   if [ -f $nvim_root/ginit.vim ] || [ -h $nvim_root/ginit.vim ]; then
     nvimrc_line=$(head -n 1 $nvim_root/ginit.vim)
