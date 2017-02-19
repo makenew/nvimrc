@@ -50,8 +50,7 @@ install_nvimrc () {
   else
     echo -e "  ➤ Installing    ❰ vim-plug ❱   \033[0m"
 
-    command -v git >/dev/null 2>&1 && \
-      env git clone https://github.com/junegunn/vim-plug \
+    env git clone https://github.com/junegunn/vim-plug \
       $nvim_root/autoload >/dev/null 2>&1
 
     echo -e "\033[32m    ✔ Installed   ❰ vim-plug ❱   \033[0m"
