@@ -121,45 +121,45 @@ $ wget https://git.io/vwYYX -O - | sh
 
 2. Create `~/.config/nvim/init.vim` with
 
-  ```vim
-  " makenew/nvimrc
+   ```vim
+   " makenew/nvimrc
 
-  if empty($XDG_CONFIG_HOME)
-    let $XDG_CONFIG_HOME = $HOME . '/.config'
-  endif
+   if empty($XDG_CONFIG_HOME)
+     let $XDG_CONFIG_HOME = $HOME . '/.config'
+   endif
 
-  call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
+   call plug#begin($XDG_CONFIG_HOME . '/nvim/plugged')
 
-  if filereadable($XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
-    source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/plugins.vim
-    if $NVIMRC_INSTALL != 'true'
-      Plug 'makenew/nvimrc'
-    endif
-  else
-    Plug 'makenew/nvimrc', { 'on': [] }
-  endif
+   if filereadable($XDG_CONFIG_HOME . '/nvim/plugged/nvimrc/plugins.vim')
+     source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/plugins.vim
+     if $NVIMRC_INSTALL != 'true'
+       Plug 'makenew/nvimrc'
+     endif
+   else
+     Plug 'makenew/nvimrc', { 'on': [] }
+   endif
 
-  call plug#end()
-  ```
+   call plug#end()
+   ```
 
-  and `~/.config/nvim/ginit.vim` with
+   and `~/.config/nvim/ginit.vim` with
 
-  ```vim
-  " makenew/nvimrc
+   ```vim
+   " makenew/nvimrc
 
-  if empty($XDG_CONFIG_HOME)
-    let $XDG_CONFIG_HOME = $HOME . '/.config'
-  endif
+   if empty($XDG_CONFIG_HOME)
+     let $XDG_CONFIG_HOME = $HOME . '/.config'
+   endif
 
-  source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
-  ```
+   source $XDG_CONFIG_HOME/nvim/plugged/nvimrc/gui.vim
+   ```
 
 3. Run
 
-  ```
-  $ nvim +PlugInstall +qa
-  $ NVIMRC_INSTALL=true nvim +PlugInstall +qa
-  ```
+   ```
+   $ nvim +PlugInstall +qa
+   $ NVIMRC_INSTALL=true nvim +PlugInstall +qa
+   ```
 
 ### Updating
 
