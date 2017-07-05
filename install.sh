@@ -50,8 +50,7 @@ install_nvimrc () {
   else
     echo -e "  ➤ Installing    ❰ vim-plug ❱   \033[0m"
 
-    command -v git >/dev/null 2>&1 && \
-      env git clone https://github.com/junegunn/vim-plug \
+    env git clone https://github.com/junegunn/vim-plug \
       $nvim_root/autoload >/dev/null 2>&1
 
     echo -e "\033[32m    ✔ Installed   ❰ vim-plug ❱   \033[0m"
@@ -71,7 +70,7 @@ install_nvimrc () {
     fi
   fi
 
-  echo -e "  ➤ Installing    ❰ $nvim_root/init.vim ❱   \033[0m"
+  echo -e "  ➤ Installing    ❰ ${nvim_root}/init.vim ❱   \033[0m"
 
   tee $nvim_root/init.vim >/dev/null <<EOF
 " $repo
@@ -94,7 +93,7 @@ endif
 call plug#end()
 EOF
 
-  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
+  echo -e "\033[32m    ✔ Installed   ❰ ${nvim_root}/init.vim ❱   \033[0m"
 
   if [ -f $nvim_root/ginit.vim ] || [ -h $nvim_root/ginit.vim ]; then
     nvimrc_line=$(head -n 1 $nvim_root/ginit.vim)
@@ -110,7 +109,7 @@ EOF
     fi
   fi
 
-  echo -e "  ➤ Installing    ❰ $nvim_root/ginit.vim ❱   \033[0m"
+  echo -e "  ➤ Installing    ❰ ${nvim_root}/ginit.vim ❱   \033[0m"
 
   tee $nvim_root/ginit.vim >/dev/null <<EOF
 " $repo
@@ -129,6 +128,8 @@ EOF
   nvim +PlugClean! +qa
   nvim +PlugInstall +qa
   NVIMRC_INSTALL=true nvim +PlugInstall +qa
+  nvim +PlugUpdate +qa
+  nvim +PlugInstall +qa
   nvim +PlugClean! +qa
 
   echo
@@ -163,6 +164,7 @@ dev_mode () {
 
   sed -i -e "s|${f_gstr}|${r_gstr}|g" $nvim_root/ginit.vim
 
+  nvim +PlugUpgrade +qa
   nvim +PlugClean! +qa
   nvim +PlugInstall +qa
   nvim +PlugClean! +qa
