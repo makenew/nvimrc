@@ -164,6 +164,7 @@ dev_mode () {
 
   sed -i -e "s|${f_gstr}|${r_gstr}|g" $nvim_root/ginit.vim
 
+  nvim +PlugUpgrade +qa
   nvim +PlugClean! +qa
   nvim +PlugInstall +qa
   nvim +PlugClean! +qa
