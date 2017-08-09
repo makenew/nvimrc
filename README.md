@@ -169,7 +169,7 @@ Here is an example of a shell function that will provide a one-step update:
 
 ```zsh
 # Upgrade nvimrc.
-function nvimupg () {
+nvimupg () {
   if ! [[ -e $XDG_CONFIG_HOME/nvim/autoload/plug.vim ]]; then
     echo 'vim-plug is not installed.'
     return 1
