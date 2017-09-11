@@ -60,7 +60,7 @@ see `:help nvimrc` or view [nvimrc.txt](./doc/nvimrc.txt) directly.
    $ git reset
    $ git add install.sh
    $ git commit -m 'Add install.sh'
-   $ git push --set-upstream origin gh-page
+   $ git push --set-upstream origin gh-pages
    $ git clean -fdx
    $ git checkout master
    ```
